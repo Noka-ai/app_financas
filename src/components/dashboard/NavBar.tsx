@@ -6,6 +6,7 @@ import { logout } from '@/app/actions/auth'
 import { BarChart3, LayoutDashboard, List, LogOut } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { ThemeToggle } from '@/components/ThemeToggle'
 
 interface NavBarProps {
   userEmail: string
@@ -15,12 +16,12 @@ export function NavBar({ userEmail }: NavBarProps) {
   const pathname = usePathname()
 
   return (
-    <header className="border-b bg-white sticky top-0 z-10">
+    <header className="border-b bg-white dark:bg-slate-900 dark:border-slate-800 sticky top-0 z-10">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
           <Link href="/dashboard" className="flex items-center gap-2">
             <BarChart3 className="h-5 w-5 text-blue-600" />
-            <span className="font-bold text-lg text-slate-800">Finanças</span>
+            <span className="font-bold text-lg text-slate-800 dark:text-slate-100">Finanças</span>
           </Link>
           <nav className="hidden md:flex items-center gap-1">
             <NavLink href="/dashboard" active={pathname === '/dashboard'}>
@@ -34,8 +35,9 @@ export function NavBar({ userEmail }: NavBarProps) {
           </nav>
         </div>
 
-        <div className="flex items-center gap-3">
-          <span className="text-sm text-slate-500 hidden sm:block">{userEmail}</span>
+        <div className="flex items-center gap-2">
+          <span className="text-sm text-slate-500 dark:text-slate-400 hidden sm:block">{userEmail}</span>
+          <ThemeToggle />
           <form action={logout}>
             <Button variant="ghost" size="sm" type="submit">
               <LogOut className="h-4 w-4 mr-1.5" />
