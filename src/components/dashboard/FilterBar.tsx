@@ -41,7 +41,7 @@ export function FilterBar({
   }
 
   return (
-    <div className="bg-white rounded-xl border border-slate-100 p-4 shadow-sm">
+    <div className="bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 p-4 shadow-sm">
       <div className="flex flex-wrap items-center gap-3">
         <MonthFilter currentMonth={currentMonth} currentYear={currentYear} />
 
